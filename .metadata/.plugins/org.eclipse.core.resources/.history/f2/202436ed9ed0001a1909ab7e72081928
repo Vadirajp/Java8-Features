@@ -1,0 +1,13 @@
+package DefaultStaticDemo.DefaultDemo;
+
+public class Audtion {
+
+	public static void main(String[] args) {
+		
+		Hero hero = new Hero();
+		hero.act();
+		hero.speak();
+
+	}
+
+}

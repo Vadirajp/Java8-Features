@@ -1,0 +1,18 @@
+package DateTimeAPI;
+
+import java.time.LocalDate;
+import java.time.Month;
+
+public class DateTimeAPIDemo {
+
+	public static void main(String[] args) {
+		LocalDate d = LocalDate.now();
+		System.out.println(d);
+		
+		LocalDate d1 = LocalDate.of(2020, Month.APRIL, 01);
+		LocalDate d2 = LocalDate.of(2024, Month.MARCH, 31);
+		int numberOfDays = d2.compareTo(d2);
+		System.out.println(d2.compareTo(d2));
+	}
+	
+}

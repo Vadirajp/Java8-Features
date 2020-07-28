@@ -1,0 +1,5 @@
+package DefaultStaticDemo.DefaultDemo;
+
+public interface Actor {
+
+}

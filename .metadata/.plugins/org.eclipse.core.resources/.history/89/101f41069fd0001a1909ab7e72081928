@@ -1,0 +1,9 @@
+package DefaultStaticDemo.DefaultDemo;
+
+public interface Actor {
+
+	void act();
+	void speak();
+	
+	
+}

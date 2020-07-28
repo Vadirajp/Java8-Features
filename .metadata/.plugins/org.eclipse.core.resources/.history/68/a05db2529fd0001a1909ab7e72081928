@@ -1,0 +1,13 @@
+package DefaultStaticDemo.DefaultDemo;
+
+public interface Actor {
+
+	void act();
+	void speak();
+	
+	static void comedy() {
+		System.out.println("I can make ppl laugh");
+	}
+	
+	
+}
