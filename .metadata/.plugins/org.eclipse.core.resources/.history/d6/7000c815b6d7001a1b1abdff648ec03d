@@ -1,0 +1,51 @@
+package ThreadDemo;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+public class TestClass {
+	
+	static int minParkingSpaces(int[][] parkingStartEndTimes) {
+        int count=0; 
+        int startTime = parkingStartEndTimes[0][0];
+        int endTime = parkingStartEndTimes[0][1];
+		for(int i=1;i<parkingStartEndTimes.length;i++) {
+			int start1 = parkingStartEndTimes[i][0];
+			int end1 = parkingStartEndTimes[i][1];
+			
+			if(startTime>=start1 && endTime>=start1) {
+				count++;
+			}else if(endTime>=end1 && endTime>=end1) {
+				count++;
+			}
+			
+			startTime = start1;
+			endTime=end1;
+			
+		}
+		return count;
+	}
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter wr = new PrintWriter(System.out);
+		int n = Integer.parseInt(br.readLine().trim());
+		int[][] parkingStartEndTimeList = new int[n][2];
+		String[] parkingStartEndTimes = br.readLine().split(" ");
+		for (int i = 0; i < n; i++) {
+		String[] parkingStartEndTime = parkingStartEndTimes[i].split(",");
+		for (int j = 0; j < parkingStartEndTime.length; j++) {
+		parkingStartEndTimeList[i][j] = Integer.parseInt(parkingStartEndTime[j]);
+		}
+		}
+
+		int out = minParkingSpaces(parkingStartEndTimeList);
+		System.out.println(out);
+
+		wr.close();
+		br.close();
+	}
+	
+}

@@ -1,0 +1,32 @@
+package com.modernjava.functionalprogramming;
+
+import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.Predicate;
+
+public class PredicateAndBiConsumerExample {
+
+	public static void main(String[] args) {
+		List<Instructor> instructor = Instructors.getAll();
+		
+		//all instructors who teaches online
+		Predicate<Instructor> p1 = (i) -> i.isOnlineCourses()==true;
+		
+		
+		//instructor experience is >5
+		Predicate<Instructor> p2 = (i) -> i.getExperience()>5;
+		
+		
+		//BiConsumer print name and courses
+		BiConsumer<String, List<String>> b1 = (name,courses) -> {
+			System.out.println("Name is : "+name + " Courses : "+courses);
+		};
+		
+		instructor.forEach(i -> {
+			if(p1.and(p2).test(i))
+				b1.accept(i.getName(), i.getCourses());
+		});
+
+	}
+
+}

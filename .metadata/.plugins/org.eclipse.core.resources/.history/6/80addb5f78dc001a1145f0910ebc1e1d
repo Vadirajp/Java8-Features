@@ -1,0 +1,38 @@
+package com.modernjava.functionalprogramming;
+
+import java.util.List;
+import java.util.function.Predicate;
+
+public class PredicateExample2 {
+
+	public static void main(String[] args) {
+		List<Instructor> instructor = Instructors.getAll();
+		
+		//all instructors who teaches online
+		Predicate<Instructor> p1 = (i) -> i.isOnlineCourses();
+		instructor.forEach(inst -> {
+			if(p1.test(inst))
+				System.out.println(inst);
+		});
+		
+		System.out.println("------------------------------------------");
+		
+		//instructor experience is >5
+		Predicate<Instructor> p2 = (i) -> i.getExperience()>5;
+		instructor.forEach(inst -> {
+			if(p2.test(inst))
+				System.out.println(inst);
+		});
+		
+		
+		System.out.println("------------------------------------------");
+		
+		//instructors who teaches online and experience is >5
+		instructor.forEach(inst -> {
+			if(p1.and(p2).test(inst))
+				System.out.println(inst);
+		});
+
+	}
+
+}

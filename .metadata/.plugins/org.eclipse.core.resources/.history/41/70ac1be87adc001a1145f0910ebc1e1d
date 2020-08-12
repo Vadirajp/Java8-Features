@@ -1,0 +1,12 @@
+package com.modernjava.functionalprogramming;
+
+import java.util.List;
+
+public class PredicateAndBiConsumerExample {
+
+	public static void main(String[] args) {
+		List<Instructor> instructor = Instructors.getAll();
+
+	}
+
+}

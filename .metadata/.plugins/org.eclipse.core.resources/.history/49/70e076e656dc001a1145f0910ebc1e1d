@@ -1,0 +1,20 @@
+package com.modernjava.functionalprogramming;
+
+import java.util.List;
+import java.util.function.Consumer;
+
+public class ConsumerExample2 {
+
+	public static void main(String[] args) {
+		List<Instructor> instructor = Instructors.getAll();
+		
+		//Looping through all instructors and pring the values of instructors
+		Consumer<Instructor> c1 = (s) -> System.out.println(s);
+		instructor.forEach(c1);
+		
+		//loop through all the instructors only print name
+		Consumer<Instructor> c2 = (s) -> System.out.println(s.getName());
+		instructor.forEach(c2);
+	}
+
+}

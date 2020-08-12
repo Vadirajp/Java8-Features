@@ -1,0 +1,38 @@
+package com.modernjava.functionalprogramming;
+
+import java.util.List;
+import java.util.function.Consumer;
+
+public class ConsumerExample2 {
+
+	public static void main(String[] args) {
+		List<Instructor> instructor = Instructors.getAll();
+		
+		//Looping through all instructors and print the values of instructors
+		Consumer<Instructor> c1 = (s) -> System.out.println(s);
+		instructor.forEach(c1);
+		
+		System.out.println("------------------------------------------");
+
+		//loop through all the instructors only print name
+		Consumer<Instructor> c2 = (s) -> System.out.println(s.getName());
+		instructor.forEach(c2);
+		
+		System.out.println("------------------------------------------");
+		
+		//loop through all the instructors and print name and courses
+		Consumer<Instructor> c3 = (s) -> System.out.println(s.getCourses());
+		instructor.forEach(c2.andThen(c3));
+		
+		System.out.println("------------------------------------------");
+		
+		//loop through all the instructors and print their name if experience >5
+		instructor.forEach(i -> {
+			if(i.getExperience()>5) {
+				c1.accept(i);
+			}
+		});
+		
+	}
+
+}

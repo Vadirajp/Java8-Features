@@ -1,0 +1,13 @@
+package com.modernjava.functionalprogramming;
+
+import java.util.function.BiConsumer;
+
+public class BiConsumerExample {
+
+	public static void main(String[] args) {
+		
+		//Printing out 2 numbers
+		BiConsumer<Integer, Integer> biConsumer = (x,y) -> System.out.println("x : "+x+" & y : "+y);
+		biConsumer.accept(10, 20);
+	}
+}

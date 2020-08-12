@@ -1,0 +1,28 @@
+package com.modernjava.functionalprogramming;
+
+import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.BiPredicate;
+
+public class BiPredicateExample {
+
+	public static void main(String[] args) {
+		
+		List<Instructor> instructor = Instructors.getAll();
+		
+		//BiPredicate 
+		BiPredicate<Boolean, Integer> p3 = (online,experience) -> online && experience>5;
+		
+		//BiConsumer print name and courses
+		BiConsumer<String, List<String>> b1 = (name,courses) -> {
+			System.out.println("Name is : "+name + " Courses : "+courses);
+		};
+		
+		instructor.forEach(i -> {
+			if(p3.test(i.onlineCourses,i.getExperience()))
+				b1.accept(i.getName(), i.getCourses());
+		});
+
+	}
+
+}
