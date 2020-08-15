@@ -1,0 +1,25 @@
+package ThreadDemo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo02  {
+
+	public static void main(String[] args) {
+		Hello h = new hi();
+		h.ml();
+	}
+}
+
+
+class Hello {
+	public static void m1() {
+		System.out.println("hello");
+	}
+}
+
+class hi extends Hello{
+	public static void m1() {
+		System.out.println("hi");
+	}
+}

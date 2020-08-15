@@ -1,0 +1,13 @@
+package com.modernjava.functionalprogramming;
+
+import java.util.function.Function;
+
+public class FunctionalExample {
+
+	public static void main(String[] args) {
+		
+		//Square root
+		Function<Integer, Double> sqrt = (n) -> Math.sqrt(n);
+		System.out.println(sqrt.apply(64));
+	}
+}
